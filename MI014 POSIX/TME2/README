@@ -1,0 +1,39 @@
+README
+
+
+Noms et prénoms du binôme :
+2203304 OUCHENE Célian
+3103249 SUN Xin
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1:
+	/src/creation.c
+
+Ex2:
+	/src/creation2.c
+
+Ex3:
+	/src/creation3.c
+	
+Ex4:
+	/src/creation4.1.c
+	/src/creation4.2.c
+Ex5:
+	/src/creation5.c
+	
+	
+Explication des directives de compilation fournies dans le(s) fichier(s)
+makefile :
+make creation1
+	crée les fichiers intermédiaires et exécute "bin/creation1"
+make creation2
+	crée les fichiers intermédiaires et exécute "bin/creation2"
+make creation3
+	crée les fichiers intermédiaires et exécute "bin/creation3"
+make creation4.1 (et 4.2)
+	crée les fichiers intermédiaires et exécute "bin/creation4.1"
+make creation5
+	crée les fichiers intermédiaires et exécute "bin/creation5"

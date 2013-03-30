@@ -1,0 +1,81 @@
+#define _XOPEN_SOURCE 700
+#define N 3
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <signal.h>
+
+
+
+void sig_hand(int sig){
+	
+}
+
+void sig_hand1(int sig){
+}
+
+
+int main(int argc, char **argv) {
+	int i, pid_fils;
+	int* tab = (int*) malloc(sizeof(int)*N);
+	sigset_t sig, sig1, sig2;
+	
+	struct sigaction action;
+	action.sa_mask=sig;
+	action.sa_flags=0;
+	action.sa_handler=sig_hand;
+	
+	sigaction(SIGINT, &action, NULL);
+	
+	sigfillset(&sig);
+	sigfillset(&sig1);
+	sigfillset(&sig2);
+	sigdelset(&sig, SIGINT);
+	sigdelset(&sig2, SIGUSR2);/* sig p3 a p1*/
+	sigdelset(&sig, SIGCHLD); /* sig p3 a p2*/
+	sigdelset(&sig1, SIGUSR1);/* sig p2 a p1*/
+	
+	sigprocmask(SIG_SETMASK, &sig2, NULL);
+	
+
+	for(i=0; i<N; i++){
+		tab[i]=getpid();
+		/*tab[0] pid pere, tab[1] pid fils, tab[2] pid petit fils*/
+		
+		if((pid_fils=fork())>0){
+			if(i==0){/*pere*/
+				sigprocmask(SIG_SETMASK, &sig2, NULL);/*masque tout sauf sigusr2*/
+				sigsuspend(&sig2);
+				printf("P1: Processus P3 crée\n");
+				printf("P1 : Processus P3 terminé\n");
+				sigprocmask(SIG_UNBLOCK, &sig2, NULL);/*demasque*/
+				
+				sigprocmask(SIG_SETMASK, &sig1, NULL);/*masque tout sauf sigusr1*/
+				sigsuspend(&sig1);
+				wait(NULL);
+				printf("P1 : Processus P2 terminé\nP1 : Fin\n");
+				return 0;
+			}else{
+				if(i==1){/*fils*/
+					action.sa_handler=sig_hand1;
+					sigprocmask(SIG_SETMASK, &sig, NULL);/*masque tout sauf sigchild*/
+					sigsuspend(&sig);/*attend sigchild petit fils*/
+					kill(tab[0], SIGUSR1);
+				
+					return 0;
+				}
+			}
+		}else{
+			if(i==2){/*petit fils*/
+				kill(tab[0], SIGUSR2);
+				kill(tab[1], SIGCHLD);
+				return 0;
+			}
+		}
+		
+	}
+	
+	return 0;
+}

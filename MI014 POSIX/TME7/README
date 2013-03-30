@@ -1,0 +1,71 @@
+README
+
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1:
+	src/remonteeVal.c
+
+Ex2:
+	src/recvfile.c
+	src/sendfile.c
+	
+	fichier d'entree est 'f_ex2'
+	fichier sortie, copier vers 'f_ex2RE'(<nom de fichier d'entree>RE)
+
+Ex3 :
+	realiser par 2 facons, UDP et TCP
+	
+	src/envClient.c
+	src/envServeur.c
+
+	version2, par protocol TCP
+	src/envClientTCP.c
+	src/envServeurTCP.c
+	
+Ex4 :
+	/src/ftpServer.c
+	/src/ftpClient.c
+	example
+	appler => serveur : ./ftpServer 7100 fSer
+				client  : ./ftpClient 7100
+	 
+	mode UPLOAD => 	serveur : wait ...
+						client : operations 'UPLOAD' 'DOWNLOAD' 'LIST'
+							'UPLOAD'
+						serveur : reception demande de UPLOAD
+						client : Vous pouver saisir le contenu vous voulez update, 'STOP' pour fin de UPLOAD
+							'XXXXX'
+						serveur : copier ...
+						client : update avec succes
+						continuer votre UPLOAD ou 'STOP' pour fin de UPLOAD
+							'XXXXXXX'
+						serveur : copier ...
+						client : update avec succes
+							continuer votre UPLOAD ou 'STOP' pour fin de UPLOAD
+							'STOP'
+						serveur : fin de UPLOAD
+						client : Merci, fin d'operation
+	mode DOWNLOAD => 	serveur : wait ...
+						client : operations 'UPLOAD' 'DOWNLOAD' 'LIST'
+							'DOWNLOAD'
+						serveur : reception demande de DOWNLOAD
+						client : vous allez DOWNLOAD le contenu du fichier par 128bits
+							entrez 'CONTINUER' pour DOWNLOAD
+							entrez 'STOP' pour arreter DOWNLOAD
+							'CONTINUER'
+						serveur : envoie ...
+						client : reception 'XXXXX'
+							entrez 'CONTINUER' pour DOWNLOAD
+							entrez 'STOP' pour arreter DOWNLOAD
+							'STOP'
+						serveur : fin de DOWNLOAD
+						client : Merci, fin d'operation
+
+

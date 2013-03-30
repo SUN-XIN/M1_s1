@@ -1,0 +1,48 @@
+README
+
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1:
+	src/asynchrones.c
+	make asynchrones
+	utiliser "struct aiocb" et la fonction "aio_write"
+	
+Ex2:
+	src/temporisateur.c
+	make temporisateur
+	je modifie le temps ponctuel a period=50 * 1000 * 1000 ns(50 est trop petit pour l'affichage)
+	chaque period on affiche "On verrifie si l'ecriture termine...    "
+	puis soit "Termine, on commence le lercture" si l'ecriture asychrone termine
+		 soit "Non termine." sinon
+	
+Ex3:
+	src/remontee.c
+	make remontee
+	j'utilise le champs "aio_offset" de "struct aiocb" pour controler l'ecriture avec l'ordre correct
+	et il faut aussi  synchroniser les fils, on ne peut calculer la somme que lors tous les ecriture terminent
+	
+Ex4:
+	src/recopie.c
+	make recopie
+	fichier entree pour tester "copie"
+	fichier sortie est "copie_inverd" <nom_de_fichier+entree>+"_inverd"
+	
+Ex5:
+	src/sigTR.c
+	make sigTR
+	define => nombre de fils N=5
+	
+Ex6:
+	src/remonteeSigTR.c
+	make remonteeSigTR
+	define => nombre de fils N=5
+	chaque fils envoie le signal SIGRTMIN avec la valeur par "sigqueue" vers le proc main(pere)
+	la fonction handler de SIGRTMIN calcule la somme
+	le proc main attend tous ses fils terminent,puis afficher la somme

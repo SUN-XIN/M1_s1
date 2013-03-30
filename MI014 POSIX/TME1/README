@@ -1,0 +1,81 @@
+README
+
+
+Noms et prénoms du binôme :
+2203304 OUCHENE Célian
+3103249 SUN Xin
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1 :
+	include/max_func.h
+	src/max_func.c
+	src/max_calcul.c
+
+Ex2:
+	include/nfork.h
+	src/nfork.c
+	src/test_nfork.c
+	
+il y a 9 fils de créer
+
+tn-----tn-------tn--------tn-----tn
+				 |		   |
+				 |		   |
+				 |		   |-----tn
+				 |		   |			 
+				 |		   |-----tn
+				 |				 
+				 |
+				 |				 
+				 ---------tn-----tn
+				  		   |
+				  		   |
+				  		   |-----tn
+				  		   |			 
+				  		   |-----tn
+
+
+Ex3:
+	src/exec.c
+	src/execl.c
+	src/execv.c
+
+exec:
+il y a 4 processus de créer , 1 père et 3 fils
+
+
+  p      f1
+exec─┬─exec───exec
+     └─exec
+         f2
+         
+         
+pere        2 fils (f1,f2)
+f1          1 fils 
+fils de f1  sans fils 
+f2          sans fils 
+
+execl et execv:
+2 fils 
+1 fils 
+
+le nombre de processus ne change pas , l'affichage est changé : il n'y a plus "sans fils"
+
+tout le code apres les exec n'ont pas été executés en cas d'execution d'exec sans erreurs
+
+
+Ex4:
+	src/chaine.c
+	
+Ex5:
+	src/synchro.c
+	J'ai résolu cette ex par 2 méthode:
+		Méthode 1:le processus fils attend la terminaison de son fils(le petit fils de proc initiale) par wait()
+		Méthode 2:le processus fils attend le signal de SIGCHLD, qui signifie la terminaison de son fils
+
+Ex6:
+
+	src/kill.c

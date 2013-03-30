@@ -1,0 +1,24 @@
+README
+
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1:
+	src/memoirePartagee.c
+
+Ex2:
+	src/semaphore.c
+
+Ex3 :
+	include/chat_server.h
+	src/chat_server.c
+	src/chat_client.c
+	
+Ex4 :
+	src/diner.c

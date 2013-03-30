@@ -1,0 +1,48 @@
+README
+
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+
+Ex1:
+	tester src/analyse.c
+
+Ex2:
+	src/mycp.c
+	copier le contenu de "f1" vers "f2"
+
+Ex3 :
+	src/mapping.c
+	copier le contenu de "f3" vers "f4"
+	On utilise "lssek" et une seule fois "write" pour mettre la taille correspondante
+	Et on utilise mmap et memcpy pour copier les contenus de fichier
+	
+Ex4 :
+	src/echange.c
+
+Ex5 :
+	src/posixL.c pour la version POSIX
+	src/cL.c pour la version C
+	le fichier pour tester est "posixVSc"
+	En POSIX, le resultat affiche est des caractere en confusion
+		c'est normal parce que les processus sont en concurrence
+	En C, parce que c'est toujours processus 1 occupe le processeur, il a lu toutes les caracteres,
+		donc le resultat affiche est propre
+
+Ex6 :
+	tester src/extended-grep
+	
+Ex7 :
+	src/inverseur
+	le fichier pour tester est "posixVSc", puis creer la fichier "posixVSc.inv"
+	On lit a partir 1er caractere de fichier1, et l'ecrit vers la position n-1 de fichier2(n est la taille de fichier1)
+	
+Ex8 :
+	src/pread
+	le fichier pour tester est "posixVSc", puis creer la fichier "posixVSc.inv"
+	On lit a partir la derniere caractere de fichier1, et l'ecrit vers la position 1 de fichier2

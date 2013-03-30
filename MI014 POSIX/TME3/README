@@ -1,0 +1,49 @@
+README
+
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+Ex1:
+	/src/conversion.c
+	
+	fichier pour tester:
+	/lib/f1.txt
+	/lib/f2.txt
+	/lib/f3.txt
+	Une fois exécution avec succès, les 3 fichier sont convertit.
+	On peut retrouver les fichier origines dans repertoire /src pour comparer les defférences.
+	
+Ex2:
+	/src/conversion2.c
+	
+	fichier pour tester:
+	/lib/f1.txt
+	/lib/f2.txt
+	/lib/f3.txt
+	/lib/f4.txt
+	/lib/f5.txt
+	Une fois exécution avec succès, les 3 fichier sont convertit.
+	On peut retrouver les fichier origines dans repertoire /src pour comparer les defférences.
+	
+Ex3:
+	/src/thread_stack.c
+	/include/thread_stack.h
+	
+Ex4:
+	/src/thread_concur.c
+	/include/thread_concur.h
+	
+	On définit 3 producteur et 5 consommateur et on change la taille de pile à dimension 5 pour tester le cas "pile pleine"
+
+EX5:
+	/src/chaine.c
+	La thread main crée une thread, qui à son tour en crée une autre, et ainsi de suite N fois(N=8)
+	Puis la thread main bolque
+	Et chaque thread bloque, jusqu'à la thread main le débloque, 
+	sauf la dernière thread envoie un signal à la thread main, la thread main reveille et attend SIGINT envoyé par utilisateur
+	Une fois elle a recu SIGINT, la thread main débloque les autres threads et attend ses terminaison, puis elle termine.
+	

@@ -1,0 +1,5 @@
+f2
+cette ligne est en minuscule.
+
+CETTE LIGNE EST EN MAJUSCULE.
+CEtte LIGNE eST en LES DEUx mode.

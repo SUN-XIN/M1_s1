@@ -1,0 +1,40 @@
+README
+
+Noms et prénoms du binôme :
+3103249 SUN Xin
+
+Détail des fichiers inclus dans les répertoires include, lib et src
+(pour chaque exercice, les fichiers qui lui sont associés) :
+
+Ex1:
+	/src/fileMessages.c
+
+Ex2
+	/src/partageMemoire.c
+	
+Ex3
+	/src/multi.c
+	On crée 5 processus, chaque procussus a une pile. La message envoyée par 	processus est en form int[2] :
+	int[0] => valeur aléatoire
+	int[1] => index de processus fils
+	Le processus pere recoit la message et envoie nbr de messages int[0] vers le fils int[1]
+	Ce fils bloque, et attend les messages envoyées par processus mere.
+	
+Ex4
+	/src/file_unique.c
+	Le processus pere et les processus fils utilise la meme file. Chaque processus fils envoie des message avec le type diffenrent
+	qui correspend l'index.
+	Puis pere envoie les message dont types differents vers les fils differents
+	
+Ex5
+	/src/semaphore.c
+
+EX6
+	/src/prod_cons.c
+	/include/thread_stack.h
+	On n'a besoin plus la valeur globales
+	adr_att est l'address debut de segment de memoire partagee
+	p_int est l'address courrant de segment de memoire partagee
+	pop : on depile une case => address courrant de segment de memoire partagee - 1
+	push : on empile une case => address courrant de segment de memoire partagee + 1
+	p_int - adr_att : taille courrant de pile, pour tester s'il est pleint ou vide.
